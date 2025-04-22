@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import "./App.css";
 import { getRandomWord } from "./utils.js";
@@ -19,13 +19,21 @@ function App() {
 
   //derive values
   const wrongAnswerCount = guess.filter(letter => !currentWord.includes(letter)).length
-  console.log(wrongAnswerCount)
   const isWon = wrongAnswerCount <= 7 && currentWord.split("").every(letter => guess.includes(letter))
   const isLost = wrongAnswerCount > 7
   const isGameOver = isWon || isLost
 
   //static values
   const alphabet = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ"
+
+  //ref values
+  const newGameButton = useRef(null)
+
+  useEffect(() => {
+    if(isGameOver) {
+      newGameButton.current.scrollIntoView({behavior: "smooth"})
+    }
+  }, [isGameOver])
 
   const gameStatusClass = clsx("game-status", {
     won: isWon,
@@ -38,7 +46,7 @@ function App() {
       return (
         <>
           <h2>Tebrikler!</h2>
-          <p>kedimiz {9 - wrongAnswerCount} canıyla mutluluktan mırlıyor! 😻 </p>
+          <p>Kedimiz {9 - wrongAnswerCount} canıyla mutluluktan mırlıyor! 😻 </p>
         </>
       )
     } if (isLost) {
@@ -122,7 +130,7 @@ function App() {
           {renderGameStatus()}
         </section>
 
-        <section className="cat-chips">
+        <section className="cat-chips" ref={newGameButton}>
           {catElements}
         </section>
 
