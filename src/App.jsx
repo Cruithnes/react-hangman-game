@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import { getRandomWord } from "./utils";
+import { getRandomWord } from "./utils.js";
 
 import catImage from "../src/assets/cat.png"
 import instagramIcon from "../src/assets/instagram-icon.png"
