@@ -136,15 +136,6 @@ function App() {
 
         {isGameOver && <button className="new-game" onClick={newGame}>Yeni Oyun</button>}
 
-        <footer>
-          <div className="footer-container">
-            <div className="socials">
-              <a href="https://github.com/Cruithnes" target="_blank"><img src={githubIcon} alt="github-icon" style={{ width: "40px" }} /></a>
-              <a href="https://www.youtube.com/@cruithne920" target="_blank"><img src={youtubeIcon} alt="youtube-icon" style={{ width: "40px" }} /></a>
-              <a href="" target="_blank" ><img src={instagramIcon} alt="instagram-icon" style={{ width: "40px" }} /></a>
-            </div>
-          </div>
-        </footer>
       </main>
     </>
   );
