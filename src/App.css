@@ -156,4 +156,23 @@ button.new-game {
   display: block;
   margin-inline: auto;
   cursor: pointer;
+  border: none;
+}
+
+button.confetti-setting {
+  background-color: #FE7743;
+  border: 1px solid #D7D7D7;
+  border-radius: 4px;
+  width: 225px;
+  height: 40px;
+  padding: 6px 12px;
+  display: block;
+  margin-inline: auto;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+
+a {
+  margin-top: 40px;
 }

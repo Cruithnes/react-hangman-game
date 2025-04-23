@@ -4,8 +4,6 @@ import "./App.css";
 import { getRandomWord } from "./utils.js";
 
 import catImage from "../src/assets/cat.png"
-import instagramIcon from "../src/assets/instagram-icon.png"
-import youtubeIcon from "../src/assets/youtube-icon.png"
 import githubIcon from "../src/assets/github-icon.png"
 
 import clsx from "clsx"
@@ -15,6 +13,9 @@ function App() {
   //state values
   const [currentWord, setCurrentWord] = useState(() => getRandomWord())
   const [guess, setGuess] = useState([])
+  const [confettiOn, setConfettiOn] = useState(true)
+
+  //just in case
   console.log(currentWord)
 
   //derive values
@@ -30,8 +31,8 @@ function App() {
   const newGameButton = useRef(null)
 
   useEffect(() => {
-    if(isGameOver) {
-      newGameButton.current.scrollIntoView({behavior: "smooth"})
+    if (isGameOver) {
+      newGameButton.current.scrollIntoView({ behavior: "smooth" })
     }
   }, [isGameOver])
 
@@ -117,9 +118,14 @@ function App() {
     setCurrentWord(getRandomWord())
   }
 
+  //changes confetti setting
+  function changeConfetti() {
+    setConfettiOn(prev => prev = !prev)
+  }
+
   return (
     <>
-      {isWon && <Confetti recycle={false} numberOfPieces={1000} />}
+      {isWon && confettiOn && <Confetti recycle={false} numberOfPieces={1000} />}
       <main>
         <header>
           <h1>Miyavmaca</h1>
@@ -142,8 +148,10 @@ function App() {
           {keyboardElements}
         </section>
 
-        {isGameOver && <button className="new-game" onClick={newGame}>Yeni Oyun</button>}
-
+        {isGameOver && <button className="new-game" onClick={newGame}>Yeni kelime</button>}
+        {isGameOver && <button className="confetti-setting" onClick={changeConfetti}>Konfeti aç/kapa</button>}
+        
+        <a href="https://github.com/Cruithnes"><img src={githubIcon} style={{ width: "35px" }} /></a>
       </main>
     </>
   );
