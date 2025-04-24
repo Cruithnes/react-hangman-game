@@ -149,7 +149,7 @@ function App() {
         </section>
 
         {isGameOver && <button className="new-game" onClick={newGame}>Yeni kelime</button>}
-        {isGameOver && <button className="confetti-setting" onClick={changeConfetti}>Konfeti {confettiOn ? "kapat" : "aç"}</button>}
+        {isWon && isGameOver && <button className="confetti-setting" onClick={changeConfetti}>Konfeti {confettiOn ? "kapat" : "aç"}</button>}
         
         <a href="https://github.com/Cruithnes"><img src={githubIcon} style={{ width: "35px" }} /></a>
       </main>
