@@ -5,7 +5,7 @@ export const words = [
   "MAVİ", "KIRMIZI", "YEŞİL", "DOST", "AİLE", "ÇOCUK", "GENÇ", "YAŞLI", "ERKEK", "KADIN", 
   "YAZAR", "ŞİİR", "TÜRKÇE", "FİZİK", "KİMYA", "MATEMATİK", "TARİH", "SOSYOLOJİ", "PSİKOLOJİ", 
   "SİNEMA", "BİLGİ", "TİCARET", "PAZAR", "MARKET", "PAZARLAMA", "REKLAM", "SATIŞ", "ALIM", 
-  "ÇALIŞAN", "MÜŞTERİ", "BANKA", "PARA", "KREDİ", "HİSSE", "FİNANS", "MÜHENDİS",
+  "ÇALIŞAN", "MÜŞTERİ", "BANKA", "PARA", "KREDİ", "HİSSE", "FİNANS", "MÜHENDİS", "YAS", "KEDER",
   
   // Orta zorlukta kelimeler
   "BİLDİRİ", "YAZILIM", "DONANIM", "TEKNOLOJİ", "İNTERNET", "SİSTEM", "İNTERKOM", "MOBİL", "SOSYAL", 
@@ -16,6 +16,8 @@ export const words = [
   "GÜVENLİK", "SAĞLIK", "EĞİTİM", "BÜYÜMEK", "HİZMET", "TAKIM", "OYUNCU", "FUTBOL", "BASKETBOL", 
   "VOLEYBOL", "YÜZME", "TENİS", "ŞAMPİYON", "GENEL", "TEKNİK", "SEVİYE", "MÜZİK", "FESTİVAL", 
   "KONSER", "MÜZİKAL", "KOMEDİ", "DRAM", "BELGESEL", "YABANCI", "TÜRK", "SANATÇI", "BAŞARILI",
+  "TAKINTI", "SAPLANTI", "ÇARE", "ÇARESİZ", "DİKKAT", "OYALAMA", "SESSİZLİK", "GECE", "BARIŞ",
+  "TOPLUM", "KONFOR", "HEDEF", "SAKAR", "DÜŞMAN", "SAVAŞ",
 
   // Zor kelimeler
   "BİLİRKİŞİ", "YALANCI", "SEFİLLİK", "EZBERLEME", "BİRLEŞİM", "TEHDİT", "İNTERFERANS", 
@@ -23,5 +25,6 @@ export const words = [
   "LİTERATÜR", "ENDÜSTRİYEL", "EĞİTİMSEL", "PSİKOLOJİK", "POTANSİYEL", 
   "SİSTEMATİK", "ANTROPOLOJİ", "OZON", "KÜLTÜREL", "SINIF", "MİKROEKONOMİ", "İNŞAAT", 
   "KOORDİNASYON", "YALINLIK", "MÜHENDİSLİK", "KONTRAT", "ENDÜSTRİ", "KONSOLİDASYON", "TEORİK", 
-  "DİNAMİK", "MİCROÇİP", "DEĞERLENDİRME", "KÜMELEME", "YÖNETİM", "ÇEŞİTLİLİK", "GÜÇLÜK"
+  "DİNAMİK", "MİKROÇİP", "DEĞERLENDİRME", "KÜMELEME", "YÖNETİM", "ÇEŞİTLİLİK", "GÜÇLÜK", "DENEYİM",
+  "GÖNÜL",
 ];

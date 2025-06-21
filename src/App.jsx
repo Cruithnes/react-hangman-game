@@ -11,18 +11,19 @@ import Confetti from "react-confetti"
 
 function App() {
   //state values
-  const [currentWord, setCurrentWord] = useState(() => getRandomWord())
-  const [guess, setGuess] = useState([])
-  const [confettiOn, setConfettiOn] = useState(true)
+  const [currentWord, setCurrentWord] = useState(() => getRandomWord());
+  const [guess, setGuess] = useState([]);
+  const [confettiOn, setConfettiOn] = useState(true);
+  const [score, setScore] = useState(0);
 
   //just in case
   console.log(currentWord)
-
+  
   //derive values
-  const wrongAnswerCount = guess.filter(letter => !currentWord.includes(letter)).length
-  const isWon = wrongAnswerCount <= 7 && currentWord.split("").every(letter => guess.includes(letter))
-  const isLost = wrongAnswerCount > 7
-  const isGameOver = isWon || isLost
+  const wrongAnswerCount = guess.filter(letter => !currentWord.includes(letter)).length;
+  const isWon = wrongAnswerCount <= 7 && currentWord.split("").every(letter => (guess.includes(letter)));
+  const isLost = wrongAnswerCount > 7;
+  const isGameOver = isWon || isLost;
 
   //static values
   const alphabet = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ"
@@ -55,6 +56,7 @@ function App() {
         <>
           <h2>Kaybettin!</h2>
           <p>Kedimiz artık biraz dinlenmeli... Tek bir canı kaldı. 😿</p>
+          <h3>Skor: {score}</h3>
         </>
       )
     }
@@ -106,7 +108,7 @@ function App() {
     )
   })
 
-  //adds pressed buttons to guess'es
+  //adds pressed buttons to guesses
   function handleKeyboard(letter) {
     setGuess(prevLetter =>
       prevLetter.includes(letter) ? prevLetter : [...prevLetter, letter])
@@ -114,6 +116,9 @@ function App() {
 
   //new game function
   function newGame() {
+    if(isWon) {
+      setScore(prev => prev + 1);
+    }
     setGuess([])
     setCurrentWord(getRandomWord())
   }
@@ -150,7 +155,7 @@ function App() {
 
         {isGameOver && <button className="new-game" onClick={newGame}>Yeni kelime</button>}
         {isWon && isGameOver && <button className="confetti-setting" onClick={changeConfetti}>Konfeti {confettiOn ? "kapat" : "aç"}</button>}
-        
+
         <a href="https://github.com/Cruithnes"><img src={githubIcon} style={{ width: "35px" }} /></a>
       </main>
     </>
