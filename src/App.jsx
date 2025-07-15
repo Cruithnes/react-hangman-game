@@ -5,7 +5,7 @@ import { getRandomWord } from "./utils.js";
 
 import catImage from "../src/assets/cat.png"
 import githubIcon from "../src/assets/github-icon.png"
-import catGif from "../src/assets/cat.gif"
+import catGif from "../src/assets/catGif.gif"
 
 import clsx from "clsx"
 import Confetti from "react-confetti"
