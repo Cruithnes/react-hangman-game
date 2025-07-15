@@ -5,6 +5,7 @@ import { getRandomWord } from "./utils.js";
 
 import catImage from "../src/assets/cat.png"
 import githubIcon from "../src/assets/github-icon.png"
+import catGif from "../src/assets/cat.gif"
 
 import clsx from "clsx"
 import Confetti from "react-confetti"
@@ -176,7 +177,7 @@ function App() {
           {keyboardElements}
         </section>
 
-        {isWon && <img src="../public/cat.gif" alt="Yemek yiyen kedi gifi" className="cat-gif" />} 
+        {isWon && <img src={catGif} alt="Yemek yiyen kedi gifi" className="cat-gif" />} 
 
         {!isGameOver && <button className="ask-word" onClick={getWord} disabled={ask < 1} >Harf Al</button>}
 
