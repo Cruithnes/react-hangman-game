@@ -15,7 +15,7 @@ function App() {
   const [guess, setGuess] = useState([]);
   const [confettiOn, setConfettiOn] = useState(true);
   const [score, setScore] = useState(0);
-  const [ask, setAsk] = useState(3)
+  const [ask, setAsk] = useState(0)
 
   //just in case
   console.log(currentWord)
@@ -67,7 +67,7 @@ function App() {
     if (currentWord.length >= 6) {
       setAsk(3);
     } else {
-      setAsk(1);
+      setAsk(2);
     }
   }, [currentWord]);
 
@@ -175,6 +175,8 @@ function App() {
         <section className="keyboard">
           {keyboardElements}
         </section>
+
+        {isWon && <img src="../public/cat.gif" alt="Yemek yiyen kedi gifi" className="cat-gif" />} 
 
         {!isGameOver && <button className="ask-word" onClick={getWord} disabled={ask < 1} >Harf Al</button>}
 
