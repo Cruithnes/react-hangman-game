@@ -15,10 +15,11 @@ function App() {
   const [guess, setGuess] = useState([]);
   const [confettiOn, setConfettiOn] = useState(true);
   const [score, setScore] = useState(0);
+  const [ask, setAsk] = useState(3)
 
   //just in case
   console.log(currentWord)
-  
+
   //derive values
   const wrongAnswerCount = guess.filter(letter => !currentWord.includes(letter)).length;
   const isWon = wrongAnswerCount <= 7 && currentWord.split("").every(letter => (guess.includes(letter)));
@@ -64,13 +65,14 @@ function App() {
 
   function getWord() {
     const unguessedLetters = currentWord
-    .split("")
-    .filter((letter) => !guess.includes(letter));
+      .split("")
+      .filter((letter) => !guess.includes(letter));
 
     if (unguessedLetters.length === 0 || isGameOver) return;
 
     const randomLetter = unguessedLetters[Math.floor(Math.random() * unguessedLetters.length)];
     setGuess((prevGuess) => [...prevGuess, randomLetter]);
+    setAsk(prev => prev - 1);
   }
 
   //creates cat span elements
@@ -127,7 +129,7 @@ function App() {
 
   //new game function
   function newGame() {
-    if(isWon) {
+    if (isWon) {
       setScore(prev => prev + 1);
     }
     setGuess([])
@@ -156,7 +158,9 @@ function App() {
           {catElements}
         </section>
 
+        <p>Kalan harf isteme hakkı: <span>{ask}</span></p>
         <section className="letters">
+
           {letterElements}
         </section>
 
@@ -164,8 +168,8 @@ function App() {
           {keyboardElements}
         </section>
 
-        {!isGameOver && <button className="ask-word" onClick={getWord}>Harf Al</button>}
-        
+        {!isGameOver && <button className="ask-word" onClick={getWord} disabled={ask < 1} >Harf Al</button>}
+
         {isGameOver && <button className="new-game" onClick={newGame}>Yeni kelime</button>}
         {isWon && isGameOver && <button className="confetti-setting" onClick={changeConfetti}>Konfeti {confettiOn ? "kapat" : "aç"}</button>}
 
