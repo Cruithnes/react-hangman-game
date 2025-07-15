@@ -62,6 +62,17 @@ function App() {
     }
   }
 
+  function getWord() {
+    const unguessedLetters = currentWord
+    .split("")
+    .filter((letter) => !guess.includes(letter));
+
+    if (unguessedLetters.length === 0 || isGameOver) return;
+
+    const randomLetter = unguessedLetters[Math.floor(Math.random() * unguessedLetters.length)];
+    setGuess((prevGuess) => [...prevGuess, randomLetter]);
+  }
+
   //creates cat span elements
   const catElements = Array.from({ length: 9 }, (_, index) => {
     const checkLost = index < wrongAnswerCount ? true : false
@@ -153,8 +164,11 @@ function App() {
           {keyboardElements}
         </section>
 
+        {!isGameOver && <button className="ask-word" onClick={getWord}>Harf Al</button>}
+        
         {isGameOver && <button className="new-game" onClick={newGame}>Yeni kelime</button>}
         {isWon && isGameOver && <button className="confetti-setting" onClick={changeConfetti}>Konfeti {confettiOn ? "kapat" : "aç"}</button>}
+
 
         <a href="https://github.com/Cruithnes"><img src={githubIcon} style={{ width: "35px" }} /></a>
       </main>
