@@ -63,6 +63,14 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    if (currentWord.length >= 6) {
+      setAsk(3);
+    } else {
+      setAsk(1);
+    }
+  }, [currentWord]);
+
   function getWord() {
     const unguessedLetters = currentWord
       .split("")
