@@ -167,7 +167,6 @@ function App() {
           {catElements}
         </section>
 
-        <p>Kalan harf isteme hakkı: <span>{ask}</span></p>
         <section className="letters">
 
           {letterElements}
@@ -179,7 +178,7 @@ function App() {
 
         {isWon && <img src={catGif} alt="Yemek yiyen kedi gifi" className="cat-gif" />} 
 
-        {!isGameOver && <button className="ask-word" onClick={getWord} disabled={ask < 1} >Harf Al</button>}
+        {!isGameOver && <button className="ask-word" onClick={getWord} disabled={ask < 1} >Harf Al (<span className={ask < 2 && "more"}>{ask}</span>)</button>}
 
         {isGameOver && <button className="new-game" onClick={newGame}>Yeni kelime</button>}
         {isWon && isGameOver && <button className="confetti-setting" onClick={changeConfetti}>Konfeti {confettiOn ? "kapat" : "aç"}</button>}

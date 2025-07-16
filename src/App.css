@@ -178,7 +178,7 @@ a {
 }
 
 button.ask-word {
-  background-color: #FCBA29;
+  background-color: #48ca64f8;
   border: 1px solid #D7D7D7;
   border-radius: 4px;
   width: 225px;
@@ -193,4 +193,8 @@ button.ask-word {
 
 .cat-gif {
   margin-bottom: 10px;
+}
+
+.more {
+  color: #DC3C22;
 }
